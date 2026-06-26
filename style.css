@@ -105,25 +105,51 @@ img{
     justify-content: center;
     align-items: center;
 }
-.img-content img{
-    height: 508px;
-    width: 515px;
-    animation: orbit 2s linear 3;
+.orbit{
+    width:200px;
+    height:200px;
+    border-radius:50%;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border: 1px solid black;
+    animation:orbit 5s linear 1;
+}
+
+.main-orbit{
+    position:absolute;
+    width:300px;
+    height:300px;
+    animation:counterOrbit 5s linear 1;
+}
+
+.main-orbit img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
 }
 @keyframes orbit{
-    0%{
-        transform: translate(0,-20px) scaleX(1) scaleY(1);
+    from{
+        transform:rotate(0deg);
     }
-    25%{
-        transform: translate(45px,0) scaleX(1.12) scaleY(0.88);
+    to{
+        transform:rotate(360deg);
     }
-    50%{
-        transform: translate(0,20px) scaleX(1) scaleY(1);
+}
+
+@keyframes counterOrbit{
+    from{
+        transform:
+            translate(-50%,-50%)
+            translateX(170px)
+            rotate(0deg);
     }
-    75%{
-        transform: translate(-45px,0) scaleX(0.88) scaleY(1.12);
-    }
-    100%{
-        transform: translate(0,-20px) scaleX(1) scaleY(1);
+
+    to{
+        transform:
+            translate(-50%,-50%)
+            translateX(170px)
+            rotate(-360deg);
     }
 }
